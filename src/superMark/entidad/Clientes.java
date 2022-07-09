@@ -15,9 +15,9 @@ public class Clientes {
 	private String domicilio;
 	private String email;
 	private String clave;
-	private String legajo;
 	
-	    public Clientes(String nombre, String apellido, String dni, String telefono, String domicilio, String email,String clave, String legajo) {
+	
+	    public Clientes(String nombre, String apellido, String dni, String telefono, String domicilio, String email,String clave) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -26,7 +26,7 @@ public class Clientes {
 		this.domicilio = domicilio;
 		this.email = email;
 		this.clave = clave;
-		this.legajo = legajo;
+		
 	}
 
 		public String getNombre() {
@@ -84,17 +84,9 @@ public class Clientes {
 		public void setClave(String clave) {
 			this.clave = clave;
 		}
-
-		public String getLegajo() {
-			return legajo;
-		}
-
-		public void setLegajo(String legajo) {
-			this.legajo = legajo;
-		}
 		
 		public String creaQueryInsert() {
-			return "insert into clientes (fecha,nombre,apellido,dni,telefono,domicilio,email,clave,legajo)values(Now(),'"+this.nombre+"','"+this.apellido+"','"+this.dni+"','"+this.telefono+"','"+this.domicilio+"','"+this.email+"','"+this.clave+"','"+this.legajo+"');";
+			return "insert into Clientes (fecha,nombre,apellido,dni,telefono,domicilio,email,clave)values(Now(),'"+this.nombre+"','"+this.apellido+"','"+this.dni+"','"+this.telefono+"','"+this.domicilio+"','"+this.email+"','"+this.clave+"');";
 	}
 
 

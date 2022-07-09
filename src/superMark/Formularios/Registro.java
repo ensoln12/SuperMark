@@ -22,15 +22,15 @@ public class Registro {
 		     String domicilio;
 		     String email;
 		     String clave;
-		     String legajo;
+		   
 		    
 		BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
-		System.out.println("************************************************************");
-		System.out.println("************************REGISTRARSE*************************");
-		System.out.println("************************************************************");
+		System.out.println("************************************************");
+		System.out.println("******************REGISTRARSE*******************");
+	    System.out.println("************************************************");  
 	    System.out.println("(*)Campos Obligatorios");
 	    System.out.println();
-	    
+	     
 		System.out.print("Nombre *: ");
 		nombre = lector.readLine();
 		
@@ -52,18 +52,20 @@ public class Registro {
         System.out.print("Clave *: ");
         clave=lector.readLine();
 		
-        System.out.print("Legajo : ");
-		legajo = lector.readLine();
+		System.out.println("************************************************"); 
 		
-		if(validarCampos(nombre,apellido,dni,telefono,domicilio,email,clave,legajo)) {
+		if(validarCampos(nombre,apellido,dni,telefono,domicilio,email,clave)) {
 			
 			CRUD crud=new CRUD();
 			
 			if(crud.ConexionGenerada()) {
+				
 				String resultado=crud.select("select email from Clientes where email='"+email+"';");
+				
 				if (resultado.length()==0) {
 					
-					Clientes nuevoCliente=new Clientes(nombre,apellido,dni,telefono,domicilio,email,clave,legajo);
+					Clientes nuevoCliente=new Clientes(nombre,apellido,dni,telefono,domicilio,email,clave);
+					
 					Usuarios usuario=new Usuarios(email, clave);
 					
 					if(crud.insert(nuevoCliente.creaQueryInsert())) {
@@ -89,7 +91,8 @@ public class Registro {
 	
 	
 	
-    private boolean validarCampos(String nombre, String apellido, String dni, String telefono, String domicilio, String email, String clave,String legajo) {
+    private boolean validarCampos(String nombre, String apellido, String dni, String telefono, String domicilio, String email, String clave)
+    {
 		boolean respuesta=true;
 		Pattern pat;
 		Matcher mat;
@@ -168,19 +171,7 @@ public class Registro {
 		          respuesta=false;
 		          System.out.println("Ingreso algun caracter incorrecto en la clave admite letras, numeros y guion bajo debe contener de 8 a 12 caracteres");
 	                      }			
-             	}
-		
-		if(legajo.length()==0) {
-			 System.out.println("Ud no es Administrador");
-		}else {
-			cadena=legajo.matches("[0-9]+");
-			
-	     	if(cadena) {
-		          System.out.println("Ud es administrador");
-			}	else {
-				System.out.println("Ingreso algun caracter incorrecto el legajo admite solo numeros");
-			}
-		}
+             	}		
 		
 		return respuesta;
        }

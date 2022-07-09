@@ -16,7 +16,7 @@ public class Administrador {
 
 		BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
 	    
-        System.out.print("Ingrese Legajo : ");
+        System.out.print("Ingrese Clave Administrador : ");
         legajo=lector.readLine();
        
 		
@@ -27,7 +27,7 @@ public class Administrador {
 		System.out.println("Error de conexion");
 	}
 	else {
-		String resultado=crud.select("select legajo from clientes where legajo='"+legajo+"';");
+		String resultado=crud.select("select legajo from Clientes where legajo='"+legajo+"';");
 		if (resultado.length()==0) {
 			
 			System.out.println("El Legajo N°: "+legajo+" no corresponde a un Administrador.");
@@ -41,7 +41,7 @@ public class Administrador {
 				System.out.println("Opciones de Administrador");
 			}
 			else {
-				System.out.println("El legajo no corresponde a un Usuario");
+				System.out.println("El legajo no corresponde a un Administrador Registrado");
 				respuesta=false;
 			}
 		}
@@ -53,4 +53,5 @@ public class Administrador {
 	
 	
 }
+	
 }

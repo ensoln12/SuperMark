@@ -25,10 +25,14 @@ public class Usuarios {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+	
+	public void mostrar() {
+		System.out.println("Tu Usuario es: "+this.email);
+	}
 
     
 	public String creaQueryInsert() {
-		return "insert into usuarios (email,clave) values ('"+this.email+"','"+this.clave+"');";
+		return "insert into Usuarios (email,clave) values ('"+this.email+"','"+this.clave+"');";
 	}
 
 }

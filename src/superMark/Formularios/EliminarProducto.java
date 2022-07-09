@@ -6,7 +6,7 @@ import superMark.entidad.Producto;
 import superMark.entidad.ProductoStock;
 import superMark.principal.CRUD;
 
-public class EliminarProducto {
+/**public class EliminarProducto {
 	
 	CRUD crud=new CRUD();
 	
@@ -18,7 +18,7 @@ public class EliminarProducto {
 			String sql="DELETE FROM Productos WHERE idProducto ="+iD;
 			boolean resultado=crud.eliminar(sql);
 			
-			ProductoStock producto=new ProductoStock(nombre, marca, categoria, descripcion, fechaVencimiento, stock, costo, precioVenta);
+			ProductoStock producto=new ProductoStock(String nombre, String marca, String categoria, String descripcion, String fechaVencimiento, int stock, double costo, double precioVenta);
 				
 			    crud.cerrar();
 			}
@@ -57,4 +57,4 @@ public class EliminarProducto {
 	}
 
 
-}
+}*/

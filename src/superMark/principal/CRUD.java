@@ -114,6 +114,19 @@ public boolean ConexionGenerada(){
 	   	   return respuesta;
    }
    
+public boolean update(String query){
+	   
+	   boolean respuesta=true;
+	   try {
+	   this.stmt.executeQuery(query);
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block	
+		respuesta=false;
+	}
+	   	   return respuesta;
+   }
+      
+   
 public boolean eliminar(String query){
 	   
 	   boolean respuesta=true;
